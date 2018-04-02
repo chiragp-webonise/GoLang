@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="../Static/bootstrap.min.css">
+   <link rel="stylesheet" href="../Static/style.css">
+   <script src="../Static/bootstrap.min.js"></script>
+</head>
+
+<form action="" method="POST" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Dashboard</h1>
+    <p>YOur details</p>
+    <hr>
+
+    <label for="psw-repeat"><b>First name</b></label>
+   	<p>{{ .FirstName }}</p>
+
+    <label for="psw-repeat"><b>Last name</b></label>
+    <p>{{ .LastName }}</p>
+
+    <label for="email"><b>Email</b></label>
+	<p>{{ .Email }}</p>    
+  
+    </div>
+  </div>
+</form>
