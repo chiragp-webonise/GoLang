@@ -17,13 +17,13 @@
     <input type="text" placeholder="Enter Last Name" name="lname" required><br><br>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required><p>{{ .Errormsg2 }}</p><p>{{ .Errormsg4 }}</p><br><br>
+    <input type="text" placeholder="Enter Email" name="email" required><p class="err">{{ .Errormsg2 }}</p><p class="err">{{ .Errormsg4 }}</p><br><br>
 <br><br>
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required><p>{{ .Errormsg3 }}</p><br><br>
+    <input type="password" placeholder="Enter Password" name="psw" required><p class="err">{{ .Errormsg3 }}</p><br><br>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="pswRepeat" required><p>{{ .Errormsg1 }}</p><br><br>
+    <input type="password" placeholder="Repeat Password" name="pswRepeat" required><p class="err">{{ .Errormsg1 }}</p><br><br>
 
     
     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>

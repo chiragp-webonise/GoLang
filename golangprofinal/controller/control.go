@@ -9,14 +9,19 @@ import (
 	_"github.com/golangpro/mysql-master"
 	"github.com/golangpro/DatabaseDB"
 	"github.com/golangpro/model"
+	"github.com/gorilla/securecookie-master"
 	)
 
 var tmpl = template.Must(template.ParseGlob("view/*.html"))
+ar cookieHandler = securecookie.New(
+	securecookie.GenerateRandomKey(64),
+	securecookie.GenerateRandomKey(32))
 type errorS struct{
 	Errormsg1 string
 	Errormsg2 string
     Errormsg3 string
     Errormsg4 string
+    Errormsg5 string
  }
 type Users struct{
 	FirstName string
@@ -24,7 +29,38 @@ type Users struct{
 	Email string
 } 
 var db *sql.DB
-
+var email string
+func getUserName(request *http.Request) (userName string) {
+	if cookie, err := request.Cookie("session"); err == nil {
+		cookieValue := make(map[string]string)
+		if err = cookieHandler.Decode("session", cookie.Value, &cookieValue); err == nil {
+			userName = cookieValue["name"]
+		}
+	}
+	return userName
+}
+func setSession(userName string, response http.ResponseWriter) {
+	value := map[string]string{
+		"name": userName,
+	}
+	if encoded, err := cookieHandler.Encode("session", value); err == nil {
+		cookie := &http.Cookie{
+			Name:  "session",
+			Value: encoded,
+			Path:  "/",
+		}
+		http.SetCookie(response, cookie)
+	}
+}
+unc clearSession(response http.ResponseWriter) {
+	cookie := &http.Cookie{
+		Name:   "session",
+		Value:  "",
+		Path:   "/",
+		MaxAge: -1,
+	}
+	http.SetCookie(response, cookie)
+}
 func Insert(w http.ResponseWriter, r *http.Request) {
 
 	db=DatabaseDB.Dbconnect()
@@ -128,8 +164,8 @@ func Check(w http.ResponseWriter, r *http.Request) {
 	db=DatabaseDB.Dbconnect()
 	e:= errorS{}
 	
-	var email,psw,pass, eid string
-	if r.Method == "GET" {
+	var psw,pass, eid string
+	if r.Method == "POST" {
 
 		
 		email = r.FormValue("email")
@@ -139,16 +175,9 @@ func Check(w http.ResponseWriter, r *http.Request) {
 	eid,pass=model.LoginCheck(db,email)
 
 		if (email==eid && psw==pass){
-			var fname, lname, eid string
+			setSession(email, w)
+			http.Redirect(w, r, "/dboard", 302)
 			
-				u := Users{}
-
-					fname,lname,eid=model.DashboardData(db,email)
-					u.FirstName = fname
-					u.LastName = lname
-					u.Email = eid
-				
-			tmpl.ExecuteTemplate(w, "DashBoard.html",u)			
 		}else{		
 			e.Errormsg4="email or password invalid"
 			tmpl.ExecuteTemplate(w, "Login.html",e)	
@@ -156,4 +185,29 @@ func Check(w http.ResponseWriter, r *http.Request) {
 
 	defer db.Close()
 
+}
+func LogoutHandler(w http.ResponseWriter, request *http.Request) {
+	clearSession(w)
+	tmpl.ExecuteTemplate(w, "Login.html",nil)	
+}
+func Dashboard(w http.ResponseWriter, r *http.Request) {
+
+	var fname, lname, eid string
+	u := Users{}
+	e:= errorS{}
+	db=DatabaseDB.Dbconnect()
+
+	fname,lname,eid=model.DashboardData(db,email)
+	u.FirstName = fname
+	u.LastName = lname
+	u.Email = eid
+
+	userName := getUserName(r)
+		if userName != "" {
+			e.Errormsg5=""
+			tmpl.ExecuteTemplate(w, "DashBoard.html",u)	
+		} else {
+			e.Errormsg5="Session time out"
+			tmpl.ExecuteTemplate(w, "Login.html",e)			
+		}
 }

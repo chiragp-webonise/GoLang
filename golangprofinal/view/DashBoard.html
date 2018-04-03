@@ -1,4 +1,7 @@
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../Static/bootstrap.min.css">
    <link rel="stylesheet" href="../Static/style.css">
    <script src="../Static/bootstrap.min.js"></script>
@@ -7,17 +10,22 @@
 <form action="" method="POST" style="border:1px solid #ccc">
   <div class="container">
     <h1>Dashboard</h1>
+    <p class="pull-right">
+        <a href="logout" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-log-out"></span> Log out
+        </a>
+    </p> 
     <p>YOur details</p>
     <hr>
-
+    
     <label for="psw-repeat"><b>First name</b></label>
-   	<p>{{ .FirstName }}</p>
+    <p>{{ .FirstName }}</p>
 
     <label for="psw-repeat"><b>Last name</b></label>
     <p>{{ .LastName }}</p>
 
     <label for="email"><b>Email</b></label>
-	<p>{{ .Email }}</p>    
+  <p>{{ .Email }}</p>    
   
     </div>
   </div>
