@@ -3,10 +3,10 @@ package main
 import (
 	
 	
-	"github.com/golangpro/DatabaseDB"
+	"github.com/golangprofinal/DatabaseDB"
 	"log"
-	"github.com/golangpro/routes"
-	_ "github.com/golangpro/mysql-master" // MySQL Database driver
+	"github.com/golangprofinal/routes"
+	_ "github.com/golangprofinal/mysql-master" // MySQL Database driver
 )
 
 

@@ -6,14 +6,15 @@ import (
 	"html/template" 
 	"log"
 	"regexp"
-	_"github.com/golangpro/mysql-master"
-	"github.com/golangpro/DatabaseDB"
-	"github.com/golangpro/model"
+	_"github.com/golangprofinal/mysql-master"
+	"github.com/golangprofinal/DatabaseDB"
+	"github.com/golangprofinal/model"
 	"github.com/gorilla/securecookie-master"
+	"fmt"
 	)
 
 var tmpl = template.Must(template.ParseGlob("view/*.html"))
-ar cookieHandler = securecookie.New(
+var cookieHandler = securecookie.New(
 	securecookie.GenerateRandomKey(64),
 	securecookie.GenerateRandomKey(32))
 type errorS struct{
@@ -22,6 +23,8 @@ type errorS struct{
     Errormsg3 string
     Errormsg4 string
     Errormsg5 string
+    Errormsg6 string
+    Errormsg7 string
  }
 type Users struct{
 	FirstName string
@@ -52,7 +55,7 @@ func setSession(userName string, response http.ResponseWriter) {
 		http.SetCookie(response, cookie)
 	}
 }
-unc clearSession(response http.ResponseWriter) {
+func clearSession(response http.ResponseWriter) {
 	cookie := &http.Cookie{
 		Name:   "session",
 		Value:  "",
@@ -69,6 +72,7 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 	
 	emailRegexp := regexp.MustCompile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$")
 	passRegexp := regexp.MustCompile("^[A-Za-z]\\w{6,}[A-Za-z]$")
+	nameRegexp := regexp.MustCompile(`^[a-zA-Z]+$`)
 	
 	if r.Method == "POST" {
 
@@ -79,6 +83,24 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 		psw := r.FormValue("psw")
 		pswRepeat := r.FormValue("pswRepeat")
 		
+		if !nameRegexp.MatchString(fname) {
+
+			flag=0
+			e.Errormsg6="First name must be alphabetic"
+			log.Println(e.Errormsg6)
+			
+		}else{
+			e.Errormsg6=""
+		}
+		if !nameRegexp.MatchString(lname) {
+
+			flag=0
+			e.Errormsg7="Last name must be alphabetic"
+			log.Println(e.Errormsg7)
+			
+		}else{
+			e.Errormsg7=""
+		}
 		if !emailRegexp.MatchString(email) {
 
 			flag=0

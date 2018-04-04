@@ -2,7 +2,7 @@ package routes
 
 import (
 "net/http"
-"github.com/golangpro/controller"
+"github.com/golangprofinal/controller"
 )
 
 
