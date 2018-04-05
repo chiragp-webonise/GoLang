@@ -57,7 +57,7 @@ func Distance(lat1, lon1, al1, lat2, lon2, al2 float64) float64 {
         D:=math.Sqrt(hp+aldp)
 
         m:=2 * r * math.Asin(math.Sqrt(D))
-        fmt.Println(math.Asin(math.Sqrt(D)))
+
         km:=m/1000.0
         return km
 }
