@@ -87,8 +87,8 @@ func main() {
          d:=Distance(la1,lo1,la2,lo2)
          d2:=Distance(la2,lo2,la3,lo3)
          d3:=Distance(la3,lo3,la4,lo4)
-         fmt.Println("distance A-B:",d)
-         fmt.Println("distance B-C:",d2)
-         fmt.Println("distance C-A:",d3)
+         fmt.Println("distance PUNE-MUMBAI:",d)
+         fmt.Println("distance MUMBAI-SURAT:",d2)
+         fmt.Println("distance SURAT-PUNE:",d3)
 
  }
