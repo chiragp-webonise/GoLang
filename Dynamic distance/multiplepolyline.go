@@ -63,6 +63,10 @@ func splitLink(s string) []string {
 }
 func main() {
 
+        if len(os.Args) < 2 {
+            fmt.Println("Missing parameter, provide file name!")
+            return
+        }   
          xmlFile, err := os.Open(os.Args[1])
          if err != nil {
                  fmt.Println("Error opening file:", err)
