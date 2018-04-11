@@ -62,7 +62,8 @@ func splitLink(s string) []string {
     return x[:len(x)-1]
 }
 func main() {
-         xmlFile, err := os.Open("multiplepolyline.kml")
+
+         xmlFile, err := os.Open(os.Args[1])
          if err != nil {
                  fmt.Println("Error opening file:", err)
                  return
@@ -77,14 +78,16 @@ func main() {
          co:=k.Document.Placemark.LineString.Coordinates
          coArray:=splitLink(co)
          var la1,lo1,la2,lo2,d float64
-         var i int
+         var i,j int
          i=1
+         j=i
          lo1, err = strconv.ParseFloat(coArray[0], 64)
          la1, err = strconv.ParseFloat(coArray[1], 64)
          lo2, err = strconv.ParseFloat(coArray[2], 64)
          la2, err = strconv.ParseFloat(coArray[3], 64) 
+         j=i+1
          d=Distance(la1,lo1,la2,lo2)
-         fmt.Println("distance",i,":",d,"KMS")
+         fmt.Println("point",i,"to",j,"distance is ",":",d,"KMS")
          for c := 4; c <len(coArray); c=c+2 {
             
                 lo1, err = strconv.ParseFloat(coArray[c], 64)
@@ -93,6 +96,7 @@ func main() {
                 la2=la1
                 lo2=lo1
                      i++
-                fmt.Println("distance",i,":",d,"KMS")
+                     j=i+1
+                fmt.Println("point",i,"to",j,"distance is ",":",d,"KMS")
          } 
  }
