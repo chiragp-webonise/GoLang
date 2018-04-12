@@ -90,14 +90,14 @@ func Distance(lat1, lon1, lat2, lon2 float64) float64 {
          temp:=append(coArray2,coArray[38:]...)
          final:=append(temp,coArray3[32:]...)
          var la1,lo1,la2,lo2,d float64
-         var i,j int
-         i=1
-         j=i
+         //var i,j int
+         //i=1
+         //j=i
          lo1, err = strconv.ParseFloat(final[0], 64)
          la1, err = strconv.ParseFloat(final[1], 64)
          lo2, err = strconv.ParseFloat(final[2], 64)
          la2, err = strconv.ParseFloat(final[3], 64) 
-         j=i+1
+         //j=i+1
          d=Distance(la1,lo1,la2,lo2)
          total:=d
          //fmt.Println("point",i,"to",j,"distance is ",":",d,"meters")
@@ -109,8 +109,8 @@ func Distance(lat1, lon1, lat2, lon2 float64) float64 {
                 total=total+d
                 la2=la1
                 lo2=lo1
-                     i++
-                     j=i+1
+                     //i++
+                     //j=i+1
                 //fmt.Println("point",i,"to",j,"distance is ",":",d,"meters")
         }
         km:=total/1000.0
