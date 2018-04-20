@@ -61,7 +61,11 @@ func Distance(lat1, lon1, lat2, lon2 float64) float64 {
     x := strings.Split(k,",")
     return x[:len(x)-1]
 }
- func main() {
+func FloatToString(input_num float64) string {
+    // to convert a float number to a string
+    return strconv.FormatFloat(input_num, 'f', 6, 64)
+}
+func main() {
         
 
         if len(os.Args) < 2 {
@@ -79,32 +83,55 @@ func Distance(lat1, lon1, lat2, lon2 float64) float64 {
 
          var k kml
          xml.Unmarshal(XMLdata, &k)
+         var c1[] string
+         
 
-        co:=k.Document.Placemarks[1].LineString.Coordinates
+        /*co:=k.Document.Placemarks[1].LineString.Coordinates
         co2:=k.Document.Placemarks[2].LineString.Coordinates
-        co3:=k.Document.Placemarks[3].LineString.Coordinates
+        co3:=k.Document.Placemarks[3].LineString.Coordinates*/
+        for i := 1; i < 4; i++ {
+                c1=append(c1,splitLink(k.Document.Placemarks[i].LineString.Coordinates)...)
+        }
 
-         coArray:=splitLink(co)
+
+        //fmt.Println(c1[90:100])
+        temp1:=append(c1[48:58],c1[38:48]...)
+        //fmt.Println(temp1)
+
+        final1:=append(temp1,c1[90:100]...)
+        fmt.Println(final1)
+        lo:=FloatToString(85.28285559459999)
+        la:=FloatToString(25.0895488165)
+
+        ar1,ar2:=lo[:7],la[:7]
+        t1:=string(ar1)
+        t2:=string(ar2)
+        f1, _ := strconv.ParseFloat(t1, 64)
+        f2, _ := strconv.ParseFloat(t2, 64)
+        fmt.Println(f1,f2)    
+
+         /*coArray:=splitLink(co)
          coArray2:=splitLink(co2)
          coArray3:=splitLink(co3)
          temp:=append(coArray2,coArray[38:]...)
          final:=append(temp,coArray3[32:]...)
+         fmt.Println(final)*/
          var la1,lo1,la2,lo2,d float64
          //var i,j int
          //i=1
          //j=i
-         lo1, err = strconv.ParseFloat(final[0], 64)
-         la1, err = strconv.ParseFloat(final[1], 64)
-         lo2, err = strconv.ParseFloat(final[2], 64)
-         la2, err = strconv.ParseFloat(final[3], 64) 
+         lo1, err = strconv.ParseFloat(final1[0], 64)
+         la1, err = strconv.ParseFloat(final1[1], 64)
+         lo2, err = strconv.ParseFloat(final1[2], 64)
+         la2, err = strconv.ParseFloat(final1[3], 64) 
          //j=i+1
          d=Distance(la1,lo1,la2,lo2)
          total:=d
          //fmt.Println("point",i,"to",j,"distance is ",":",d,"meters")
-         for c := 4; c <len(final); c=c+2 {
+         for c := 4; c <len(final1); c=c+2 {
             
-                lo1, err = strconv.ParseFloat(final[c], 64)
-                la1, err = strconv.ParseFloat(final[c+1], 64)
+                lo1, err = strconv.ParseFloat(final1[c], 64)
+                la1, err = strconv.ParseFloat(final1[c+1], 64)
                 d=Distance(la2,lo2,la1,lo1)
                 total=total+d
                 la2=la1
