@@ -30,6 +30,9 @@ func TestStackPush(t *testing.T) {
 }
 func TestStackPop(t *testing.T) {
 	stack := Newstack()
+	if actualValue:= stack.Pop(); actualValue != nil {
+		t.Errorf("Got %v expected %v", actualValue, nil)
+	}
 	stack.Push(&Node{1})
 	stack.Push(&Node{2})
 	stack.Push(&Node{3})
@@ -50,4 +53,113 @@ func TestStackPop(t *testing.T) {
 	 if actualValue := stack.Values(); len(actualValue) != 0 {
 	 	t.Errorf("Got %v expected %v", actualValue, "[]")
 	 }
+}
+func TestStackPeek(t *testing.T) {
+	stack := Newstack()
+	if actualValue:= stack.Peek(); actualValue != nil {
+		t.Errorf("Got %v expected %v", actualValue, nil)
+	}
+	stack.Push(&Node{1})
+	stack.Push(&Node{2})
+	stack.Push(&Node{3})
+	if actualValue:= stack.Peek().String(); actualValue != "3"{
+		t.Errorf("Got %v expected %v", actualValue, 3)
+	}
+}
+func benchmarkPush(b *testing.B, stack *Stack, size int) {
+	for i := 0; i < b.N; i++ {
+		for n := 0; n < size; n++ {
+			stack.Push(&Node{n})
+		}
+	}
+}
+func benchmarkPop(b *testing.B, stack *Stack, size int) {
+	for i := 0; i < b.N; i++ {
+		for n := 0; n < size; n++ {
+			stack.Pop()
+		}
+	}
+}
+func BenchmarkArrayStackPop100(b *testing.B) {
+	b.StopTimer()
+	size := 100
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPop(b, stack, size)
+}
+
+func BenchmarkArrayStackPop1000(b *testing.B) {
+	b.StopTimer()
+	size := 1000
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPop(b, stack, size)
+}
+
+func BenchmarkArrayStackPop10000(b *testing.B) {
+	b.StopTimer()
+	size := 10000
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPop(b, stack, size)
+}
+
+func BenchmarkArrayStackPop100000(b *testing.B) {
+	b.StopTimer()
+	size := 100000
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPop(b, stack, size)
+}
+func BenchmarkArrayStackPush100(b *testing.B) {
+	b.StopTimer()
+	size := 100
+	stack := Newstack()
+	b.StartTimer()
+	benchmarkPush(b, stack, size)
+}
+
+func BenchmarkArrayStackPush1000(b *testing.B) {
+	b.StopTimer()
+	size := 1000
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPush(b, stack, size)
+}
+
+func BenchmarkArrayStackPush10000(b *testing.B) {
+	b.StopTimer()
+	size := 10000
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPush(b, stack, size)
+}
+
+func BenchmarkArrayStackPush100000(b *testing.B) {
+	b.StopTimer()
+	size := 100000
+	stack := Newstack()
+	for n := 0; n < size; n++ {
+		stack.Push(&Node{n})
+	}
+	b.StartTimer()
+	benchmarkPush(b, stack, size)
 }

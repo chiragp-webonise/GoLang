@@ -50,6 +50,12 @@ func (s *Stack) Pop() *Node {
 	s.count--
 	return s.nodes[s.count]
 }
+func (s *Stack) Peek() *Node {
+	if s.count == 0 {
+		return nil
+	}
+	return s.nodes[s.count-1]
+}
 // func main() {
 // 	s := Newstack()
 	
@@ -61,4 +67,3 @@ func (s *Stack) Pop() *Node {
 // 	fmt.Println(vals[0])
 // 	fmt.Println(s.Pop(), s.Pop(), s.Pop())
 // }
- 
