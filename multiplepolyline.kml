@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<!--<name>Shapes</name><Style id="thickLine"><LineStyle><width>2.5</width></LineStyle></Style>
+<Style id="transparent50Poly"><PolyStyle><color>7fffffff</color></PolyStyle></Style>-->
+<name>TEST.kmz</name>
+	<open>1</open>
+	<Style id="sh_ylw-pushpin">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin2</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin_hl">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin1</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin1</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="s_ylw-pushpin_hl0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+		</LineStyle>
+	</Style>
+	<Style id="point1">
+		<IconStyle>
+			<Icon>
+				<href>kml_symbol_dot_0.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff00ff</color>
+		</LineStyle>
+	</Style>
+	<Style id="s_ylw-pushpin0">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="point2">
+		<IconStyle>
+			<Icon>
+				<href>kml_symbol_no symbol_0.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="line1">
+		<LineStyle>
+			<color>ff000000</color>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin1">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0000</color>
+		</LineStyle>
+	</Style>
+	<Style id="sh_ylw-pushpin2">
+		<IconStyle>
+			<scale>1.3</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ff00ff00</color>
+		</LineStyle>
+	</Style>
+	<Style id="sn_ylw-pushpin1">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff0000</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_ylw-pushpin1">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ylw-pushpin2">
+		<IconStyle>
+			<scale>1.1</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LineStyle>
+			<color>ffff00ff</color>
+		</LineStyle>
+	</Style>
+	<StyleMap id="m_ylw-pushpin0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#s_ylw-pushpin0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ylw-pushpin2">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ylw-pushpin2</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ylw-pushpin0</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder>
+		<name>Point Features</name>
+		<description>Point Features</description>
+		<Placemark>
+			<name>WTG2100KW-S11X_PROPOSED</name>
+			<description><![CDATA[WTG2100KW-S11X_PROPOSED<BR><BR><B>ELEVATION</B> = 0.0]]></description>
+			<styleUrl>#point1</styleUrl>
+			<Point>
+				<coordinates>85.28285559459999,25.0895488165,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>WTG2100KW-S11X_PROPOSED</name>
+			<description><![CDATA[WTG2100KW-S11X_PROPOSED<BR><BR><B>ELEVATION</B> = 0.0]]></description>
+			<styleUrl>#point1</styleUrl>
+			<Point>
+				<coordinates>85.27981097430001,25.0937297824,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>WTG2100KW-S11X_PROPOSED</name>
+			<description><![CDATA[WTG2100KW-S11X_PROPOSED<BR><BR><B>ELEVATION</B> = 0.0]]></description>
+			<styleUrl>#point1</styleUrl>
+			<Point>
+				<coordinates>85.29507335629999,25.0935900198,0</coordinates>
+			</Point>
+		</Placemark>
+</Folder>
+<Placemark>
+			<name>A4</name>
+			<description><![CDATA[WTG2100KW-S11X_PROPOSED<BR><BR><B>ELEVATION</B> = 0.0]]></description>
+			<styleUrl>#point2</styleUrl>
+			<Point>
+				<coordinates>85.2839603425,25.0892278296,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>A8</name>
+			<description><![CDATA[WTG2100KW-S11X_PROPOSED<BR><BR><B>ELEVATION</B> = 0.0]]></description>
+			<styleUrl>#point2</styleUrl>
+			<Point>
+				<coordinates>85.29617811510001,25.0932689423,0</coordinates>
+			</Point>
+		</Placemark>
+<!--<Placemark>
+		<name>Untitled Path</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+				85.28520449768512,25.0908071690058,0 85.28539859004621,25.0905480432011,0 85.28723290283728,25.09024564844458,0 85.29113565414703,25.08967473112189,0 85.29402321823726,25.08912636118795,0 
+			</coordinates>
+		</LineString>
+	</Placemark>-->
+	<Placemark>
+		<name>Untitled Path</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+				85.28284799367495,25.08959000813778,0 85.28303242553201,25.08955973623743,0 85.28311506149369,25.09020493798426,0 85.28323193320472,25.09019774042604,0 85.28336179595662,25.09097814632803,<!--Customized0 85.283366,25.090998,-->0 85.28520449768512,25.0908071690058,0 85.28539859004621,25.0905480432011,0 85.28723290283728,25.09024564844458,0 85.29113565414703,25.08967473112189,0 85.29402321823726,25.08912636118795,0  
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark>
+		<name>Untitled Path</name>
+		<styleUrl>#m_ylw-pushpin</styleUrl>
+		<LineString>
+			<tessellate>1</tessellate>
+			<coordinates>
+				85.29511243841535,25.09377114084184,0 85.29480698140083,25.09298823843364,0 85.29454244624971,25.09115880400299,0 85.29423807191741,25.09006238662516,0 85.29403545452726,25.08912193086729,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+<!--<Placemark>
+<name>Shape</name>
+<description>Shape</description>
+<LineString>
+	<coordinates>72.828369140625,21.15623836610943,0 72.894287109375,19.062117883514652,0 73.861083984375,18.510865709091377,0 74.4873046875,19.746024239625427,0 73.773193359375,19.98367396609249,0 72.83935546875,21.207458730482642,0 </coordinates>
+</LineString><styleUrl>#thickLine</styleUrl></Placemark>-->
+</Document>
+</kml>
