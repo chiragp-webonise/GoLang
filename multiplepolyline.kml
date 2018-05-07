@@ -250,9 +250,7 @@
 			</Point>
 		</Placemark>
 </Folder>
-<Folder>
-		<name>Line Features</name>
-		<description>Line Features</description>
+		
 		<Placemark>
 			<description><![CDATA[0<BR><BR><B>ELEVATION</B> = 0.0]]></description>
 			<styleUrl>#line1</styleUrl>
@@ -271,7 +269,6 @@
 				</coordinates>
 			</LineString>
 		</Placemark>
-</Folder>
 <Placemark>
 			<name>A4</name>
 			<description><![CDATA[WTG2100KW-S11X_PROPOSED<BR><BR><B>ELEVATION</B> = 0.0]]></description>
