@@ -222,7 +222,7 @@
 			<styleUrl>#sh_ylw-pushpin0</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Folder>
+	
 		<name>Point Features</name>
 		<description>Point Features</description>
 		<Placemark>
@@ -249,7 +249,7 @@
 				<coordinates>85.29507335629999,25.0935900198,0</coordinates>
 			</Point>
 		</Placemark>
-</Folder>
+
 		
 		<Placemark>
 			<description><![CDATA[0<BR><BR><B>ELEVATION</B> = 0.0]]></description>
