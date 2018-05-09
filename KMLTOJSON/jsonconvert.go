@@ -8,11 +8,11 @@ import (
 	"os"
 )
 type kml struct {
-        //XMLName xml.Name `xml: "kml"`
+    
         Document Document `xml:"Document"`
  }
  type Document struct {
-        //XMLName xml.Name `xml:"Document"`
+        
         Name string `xml:"name"`
         Open string `xml:"open"`
         Style[] Style `xml:"Style"`
@@ -21,42 +21,41 @@ type kml struct {
         Placemark[] Placemark `xml:"Placemark"`
  }
  type Style struct {
-        //XMLName xml.Name `xml:"Style"`
+      
  		Id string `xml:"id,attr"`
         IconStyle IconStyle `xml:"IconStyle"`
         LineStyle LineStyle `xml:"LineStyle"`
  }
  type IconStyle struct {
-        //XMLName xml.Name `xml:"IconStyle"`
+     
         Scale string `xml:"scale"`
         Icon Icon `xml:"Icon"`
         HotSpot HotSpot `xml:"hotSpot"`
  }
 
  type HotSpot struct {
- 		//XMLName xml.Name `xml:"hotSpot"`
+ 	
  		X string `xml:"x,attr"`
  		Y string `xml:"y,attr"`
  		Xunits string `xml:"xunits,attr"`
  		Yunits string `xml:"yunits,attr"`
  }
  type Icon struct {
-        //XMLName xml.Name `xml:"Icon"`
+        
         Href string `xml:"href"`
  }
   type LineStyle struct {
-        //XMLName xml.Name `xml:"LineStyle"`
+     
         Color string `xml:"color"`
  }
  type Folder struct {
-        //XMLName xml.Name `xml:"Folder"`
-        //LineString LineString `xml:"LineString"`
+        
         Name string `xml:"name"`
         Description string `xml:"description"`
         Placemark[] Placemark `xml:"Placemark"`
  }
  type Placemark struct {
-        //XMLName xml.Name `xml:"Placemark"`
+       
         Name string `xml:"name"`
         Description string `xml:"description"`
         LookAt LookAt `xml:"LookAt"`
@@ -65,7 +64,7 @@ type kml struct {
         Point Point `xml:"Point"`
  }
  type LookAt struct {
-        //XMLName xml.Name `xml:"LookAt"`
+  
         Longitude string `xml:"longitude"`
         Latitude string `xml:"latitude"`
         Altitude string `xml:"altitude"`
@@ -75,22 +74,21 @@ type kml struct {
         GxaltitudeMode string `xml:"http://www.google.com/kml/ext/2.2 altitudeMode"`
  }
 type Point struct {
-        //XMLName xml.Name `xml:"Point"`
+    
         GxdrawOrder string `xml:"http://www.google.com/kml/ext/2.2 drawOrder"`
         Coordinates string `xml:"coordinates"`
  }
  type LineString struct {
-        //XMLName xml.Name `xml:"LineString"`
+ 
         Tessellate string `xml:"tessellate"`
         Coordinates string `xml:"coordinates"`
  }
  type StyleMap struct{
- 	   // XMLName xml.Name `xml:"StyleMap"`
+ 	   
  		Id string `xml:"id,attr"`
  	    Pair[] Pair `xml:"Pair"`
  }
  type Pair struct{
- 		//XMLName xml.Name `xml:"Pair"`
  		Key string `xml:"key"`
  		StyleUrl string `xml:"styleUrl"`
  }
