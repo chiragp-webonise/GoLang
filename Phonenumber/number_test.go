@@ -24,7 +24,13 @@ func TestNumber(t *testing.T) {
 			// if we expect an error and there isn't one
 			t.Errorf("FAIL: %s\nNumber(%q): expected an error, but error is nil", test.description, test.input)
 		}
-		//fmt.Println("done")
+	
+	}
+}
+func BenchmarkNumber(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, test := range numberTests {
+		}
 	}
 }
 func TestAreaCode(t *testing.T) {
@@ -42,6 +48,13 @@ func TestAreaCode(t *testing.T) {
 		} else if actualErr == nil {
 			// if we expect an error and there isn't one
 			t.Errorf("FAIL: %s\nAreaCode(%q): expected an error, but error is nil", test.description, test.input)
+		}
+	}
+}
+func BenchmarkAreaCode(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, test := range numberTests {
+			AreaCode(test.input)
 		}
 	}
 }
@@ -63,6 +76,14 @@ func TestFormat(t *testing.T) {
 		}
 	}
 }
+func BenchmarkFormat(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		for _, test := range numberTests {
+			Format(test.input)
+		}
+	}
+}
+
 func Number(input string) (string,error){
 
 	arr:=strings.Fields(input)
@@ -76,18 +97,16 @@ func Number(input string) (string,error){
      	 	      	return input,errors.New("number shouldn't contain alphabets")
         	}
     	}
-   	//fmt.Println(input)
     re_leadclose_whtsp := regexp.MustCompile(`^[\s\p{Zs}]+|[\s\p{Zs}]+$`)
     re_inside_whtsp := regexp.MustCompile(`[\s\p{Zs}]{0,}`)
     final := re_leadclose_whtsp.ReplaceAllString(input, "")
     final = re_inside_whtsp.ReplaceAllString(input, "")
-    //fmt.Println(reflect.TypeOf(final))
 
     reg := regexp.MustCompile("[^0-9]+")
-    //origStr := "(223) 456	-7890"
+
     replaceStr := reg.ReplaceAllString(final, "")
     area:=replaceStr[:3]
-	//fmt.Println(replaceStr)
+	
 	if len(replaceStr)==9{
 		 return replaceStr,errors.New("invalid 9 digits")
 	}else if len(replaceStr)==11 && replaceStr[:1]!="1"{
@@ -121,19 +140,14 @@ func AreaCode(input string) (string,error){
      	 	      	return input,errors.New("number shouldn't contain alphabets")
         	}
     	}
-   	//fmt.Println(input)
     re_leadclose_whtsp := regexp.MustCompile(`^[\s\p{Zs}]+|[\s\p{Zs}]+$`)
     re_inside_whtsp := regexp.MustCompile(`[\s\p{Zs}]{0,}`)
     final := re_leadclose_whtsp.ReplaceAllString(input, "")
     final = re_inside_whtsp.ReplaceAllString(input, "")
-    //fmt.Println(reflect.TypeOf(final))
 
     reg := regexp.MustCompile("[^0-9]+")
-    //origStr := "(223) 456	-7890"
     replaceStr := reg.ReplaceAllString(final, "")
-	//fmt.Println(replaceStr)
 	area:=replaceStr[:3]
-	 //fmt.Println(replaceStr)
 	if len(replaceStr)==9{
 		 return area,errors.New("invalid 9 digits")
 	}else if len(replaceStr)==11 && replaceStr[:1]!="1"{
@@ -167,17 +181,16 @@ func Format(input string) (string,error){
      	 	      	return input,errors.New("number shouldn't contain alphabets")
         	}
     	}
-   	//fmt.Println(input)
+   	
     re_leadclose_whtsp := regexp.MustCompile(`^[\s\p{Zs}]+|[\s\p{Zs}]+$`)
     re_inside_whtsp := regexp.MustCompile(`[\s\p{Zs}]{0,}`)
     final := re_leadclose_whtsp.ReplaceAllString(input, "")
     final = re_inside_whtsp.ReplaceAllString(input, "")
-    //fmt.Println(reflect.TypeOf(final))
 
     reg := regexp.MustCompile("[^0-9]+")
-    //origStr := "(223) 456	-7890"
+ 
     replaceStr := reg.ReplaceAllString(final, "")
-	//fmt.Println(replaceStr)
+	
 	var replaceStr1 string
 	if len(replaceStr)==11 && replaceStr[:1]=="1"{	 
 		    replaceStr1=replaceStr[1:]
@@ -187,7 +200,7 @@ func Format(input string) (string,error){
     }
 	area:=replaceStr[:3]
 	
-	 //fmt.Println(replaceStr)
+
 	if len(replaceStr)==9{
 		 return replaceStr1,errors.New("invalid 9 digits")
 	}else if len(replaceStr)==11 && replaceStr[:1]!="1"{
