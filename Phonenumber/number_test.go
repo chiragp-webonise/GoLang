@@ -57,7 +57,7 @@ func TestAreaCode(t *testing.T) {
 func BenchmarkAreaCode(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, test := range numberTests {
-			AreaCode(test.input)
+			AreaCode(test.inpu)
 		}
 	}
 }
