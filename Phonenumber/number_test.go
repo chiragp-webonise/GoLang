@@ -29,7 +29,7 @@ func TestNumber(t *testing.T) {
 }
 func BenchmarkNumber(b *testing.B) {
 	//comment for webhooktest
-	for j := 0; j < b.T; j++ {
+	for T := 0; j < b.T; T++ {
 		//comment for webhooktest
 		for _, test := range numberTests {
 			Number(test.input)
